@@ -1,0 +1,201 @@
+/* Importar fuentes */
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&display=swap');
+
+/* Resetear márgenes y espaciados de todos los elementos */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    /* incluye los bordes en el width y height */
+    box-sizing: border-box;
+}
+
+/* Colores y Fuentes de letra comunes */
+:root {
+    --color-texto-normal: #ffffff;
+    --color-texto-titulo2: #78aedc;
+    --color-texto-footer: #221f1f;
+
+    --color-fondo-main: #d6e6f6;
+
+    --fuente-sin-serifa1: "Helvetica, Arial", sans-serif;
+    --fuente-sin-serifa2: "Roboto Condensed", sans-serif;
+    --fuente-con-serifa: "Bodoni Moda", serif;
+}
+    
+/* Letra */
+h1 {
+    color: var(--color-texto-normal);
+    font-family: var(--fuente-con-serifa);
+    line-height: 1em;
+    min-width: 350px;
+    
+    text-align: center;
+}
+
+h2 {
+    color: var(--color-texto-titulo2);
+    font-family: var(--fuente-con-serifa);
+    line-height: 1.25em;
+}
+
+h3 {
+    color: var(--color-texto-titulo2);
+    font-family: var(--fuente-sin-serifa2);
+    font-stretch: extra-condensed;
+    font-weight:100;
+    line-height: 1.5em;
+    font-size: 14px;
+}
+
+footer {
+    color: var(--color-texto-footer);
+    font-family: var(--fuente-sin-serifa2);
+    font-stretch: extra-condensed;
+    font-weight:100;
+    font-size: 14px;
+}
+
+p {
+    margin-top: 0.5em;
+}
+
+.descripcion {
+    color: var(--color-texto-normal);
+    font-family: var(--fuente-sin-serifa1);
+    font-size: 12px;
+}
+
+.atencion {
+    color: var(--color-texto-normal);
+    font-family: var(--fuente-sin-serifa1);
+    background-color: var(--color-texto-titulo2);
+    padding: 0.10em;
+}
+
+.h2--mayor {
+    font-size: xx-large;
+}
+
+.cinco__imagen {
+    width: 50%;
+    height: 100%;
+}
+
+/* Secciones - cosas no-CSS Grid */
+body {
+    background-color: var(--color-fondo-main);
+    width: 100vw;
+}
+
+header {
+    background-color: var(--color-texto-titulo2);
+    padding: 1rem 1rem;
+    min-width: 360px;  
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 1em;
+}
+
+li {
+    position: relative;  
+    min-height: 150px;
+    padding: 1em;
+    margin: 0.5em;
+    float: left;
+    border-bottom-right-radius: 75px;
+    
+    list-style: none;
+}
+
+ul #uno {
+    background-color: #633f52;
+}
+
+ul #dos {
+    background-color: #563f63;
+}
+
+ul #tres {
+    background-color: #3f635a;
+}
+
+ul #cuatro {
+    background-color: #63623f;
+}
+
+ul #cinco {
+    background-color: #634f3f;
+    clear: both;
+}
+
+footer {
+    padding: 1.5em;
+    clear:both;
+    min-width: 360px; 
+}
+
+/* CSS Grid, si supportado */
+@supports (display:grid) {
+    ul {
+        display: grid;
+        align-content: space-between;
+        grid-template-columns: auto 15px 15px 15px auto;
+        grid-template-rows: auto 15px auto 15px auto 15px auto;             
+    }
+    
+    li {
+        /* Reseteamos */
+        position: static;
+        min-width: auto;    
+        min-height: auto;
+        margin: 0;
+        float: none;
+        border-bottom-right-radius: 0;
+        
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Y1/X1/Y2/X2 */
+    ul #uno {
+        grid-area: 1/1/2/4;
+        border-top-left-radius: 75px;        
+        min-height: 250px;
+        justify-content: flex-end;
+    }
+
+    ul #dos {
+        grid-area: 1/5/4/6;
+        text-align: right;
+        border-bottom-left-radius: 75px;
+        min-height: 250px;
+    }
+
+    ul #tres {
+        grid-area: 3/1/6/2;
+        border-top-right-radius: 75px;
+        min-height: 250px;
+        justify-content: flex-end;
+    }
+
+    ul #cuatro {
+        grid-area: 5/3/6/6;
+        border-bottom-right-radius: 75px;
+        min-height: 250px;
+    }
+
+    ul #cinco {
+        grid-area: 7/1/8/6;
+        clear: none;
+        border-bottom-left-radius: 75px;
+        min-height: 150px;
+        
+        flex-direction: row;
+    }
+}
